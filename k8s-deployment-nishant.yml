@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment                 # Type of Kubernetes resource
+metadata:
+  name: python-hello-world           # Name of the Kubernetes resource
+spec:
+  replicas: 3                    # Number of pods to run at any given time
+  selector:
+    matchLabels:
+      app: python-hello-world        # This deployment applies to any Pods matching the specified label
+  template:                      # This deployment will create a set of pods using the configurations in this template
+    metadata:
+      labels:                    # The labels that will be applied to all of the pods in this deployment
+        app: python-hello-world 
+    spec:                        # Spec for the container which will run in the Pod
+      containers:
+      - name: python-hello-world
+        image: nishant13/python_app_k8s:initial 
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 80
