@@ -25,6 +25,7 @@ kubectl version
 
 # Now you have to configure kubectl to talk to your nodes with the below commands.
 terraform output config_map_aws_auth > config_map_aws_auth.yml
+
 kubectl apply -f config_map_aws_auth.yml
 
 # Once it is success you will be able to communicate with your nodes. To check that we can run below command:
